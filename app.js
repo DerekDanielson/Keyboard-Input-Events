@@ -1,41 +1,50 @@
-/*
-document.querySelector('.clear-tasks').addEventListener('click', function(e){
-    console.log('Hello');
+const form = document.querySelector('form');
+const taskInput = document.getElementById('task');
+const heading = document.querySelector('h5');
+
+// Clear input
+taskInput.value = '';
+
+form.addEventListener('submit', runEvent);
+
+// Keydown
+taskInput.addEventListener('keydown', runEvent);
+
+// Keyup
+taskInput.addEventListener('keyup', runEvent);
+
+// Keypress
+taskInput.addEventListener('keypress', runEvent);
+
+// Focus
+taskInput.addEventListener('focus', runEvent);
+
+// Blue
+taskInput.addEventListener('blur', runEvent);
+
+// Cut
+taskInput.addEventListener('cut', runEvent);
+
+// Paste
+taskInput.addEventListener('paste', runEvent);
+
+// Input
+taskInput.addEventListener('input', runEvent);
+
+// Change 
+taskInput.addEventListener('change', runEvent);
+
+
+
+function runEvent(e) {
+    console.log(`EVENT TYPE: ${e.type}`);
+
+    console.log(e.target.value);
+    heading.innerText = e.target.value;
+
+    //Get input value
+    console.log(taskInput.value);
+
 
     e.preventDefault();
-});
-*/
-
-
-document.querySelector('.clear-tasks').addEventListener('click', onClick);
-
-function onClick(e){
-    //console.log('Clicked');
-    let val;
-    val = e;
-
-    // Event target element
-    val = e.target;
-    val = e.target.id;
-    val = e.target.className;
-    val = e.target.classList;
-
-    e.target.innerText = 'Hello';
-
-    // Event type
-    val = e.type;
-
-    // Timestamp
-    val = e.timeStamp;
-
-    // Coordinates event relative to the window
-    val = e.clientY; //pixels from top to bottom
-    val = e.clientX; //pixels from left to right
-
-    // Coordinates event relative to the element
-    val = e.offsetY;
-    val = e.offsetX;
-
-    console.log(val);
 }
-
